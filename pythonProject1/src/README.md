@@ -27,3 +27,7 @@ pip install -r requirements.txt
 ## Лицензия:
 
 Этот проект лицензирован по моему желанию:).
+
+## Тестировние:
+
+Есть тестирование функций get_mask_card_number, get_mask_account, mask_account_card, filter_by_state, get_date, sort_by_date

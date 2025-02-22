@@ -30,4 +30,4 @@ pip install -r requirements.txt
 
 ## Тестировние:
 
-Есть тестирование функций get_mask_card_number, get_mask_account, mask_account_card, filter_by_state, get_date, sort_by_date
+Есть тестирование функций get_mask_card_number, get_mask_account, mask_account_card, filter_by_state, get_date, sort_by_date, filter_by_currency, transaction_descriptions, card_number_generator  

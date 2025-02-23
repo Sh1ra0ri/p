@@ -82,7 +82,6 @@ transactions = [
 
 @pytest.mark.parametrize("currency, expected", [("USD", 895315941), ("RUB", 594226727)])
 def test_filter_by_currency(transactions: list, currency: str, expected: int) -> None:
-    # Исправление: использовать list для всех результатов генератора
     result = list(filter_by_currency(transactions, currency))
     assert result[0]["id"] == expected
 
@@ -104,7 +103,6 @@ def test_filter_by_currency(transactions: list, currency: str, expected: int) ->
     ],
 )
 def test_card_number_generator(start: int, last: int, expected: list) -> None:
-    # Исправление: использование правильных значений start и last
     assert list(card_number_generator(start, last)) == expected
 
 
@@ -124,6 +122,4 @@ def test_card_number_generator(start: int, last: int, expected: list) -> None:
     ]
 )
 def test_transaction_descriptions(transactions: list, expected: list) -> None:
-    # Исправление: правильная проверка всех транзакций
     assert list(transaction_descriptions(transactions)) == expected
-

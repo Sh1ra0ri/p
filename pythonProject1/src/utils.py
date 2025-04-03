@@ -21,7 +21,6 @@ def read_transactions(file_path: Path) -> List[Dict[str, Any]]:
         print(f"Ошибка при чтении файла {file_path}: {e}")
         return []
 
-
 def transaction_sum(transaction: dict, file_type: str = "json") -> float:
     """функция, которая принимает на вход транзакцию и возвращает сумму транзакции в рублях,"""
     url = "https://api.apilayer.com/exchangerates_data/convert"
@@ -37,22 +36,18 @@ def transaction_sum(transaction: dict, file_type: str = "json") -> float:
     if currency_code == "RUB":
         return amount
 
-    params = {
-        "from": currency_code,
-        "to": "RUB",
-        "amount": amount
-    }
+    params = {"from": currency_code, "to": "RUB", "amount": amount}
 
     try:
         response = requests.get(url, headers=headers, params=params)
         response_data = response.json()
 
         if response.status_code == 200:
-            return response_data.get('result', amount)
+            return response_data.get('result', None)
         else:
             print(f"Ошибка запроса API: {response_data.get('error', 'Неизвестная ошибка')}")
-            return amount
+            return None
 
     except requests.exceptions.RequestException as e:
         print(f"Ошибка при запросе к API: {e}")
-        return amount
+        return None
